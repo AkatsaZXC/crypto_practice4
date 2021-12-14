@@ -7,16 +7,16 @@
    6. For encryption, c = me mod n, where m = original message.
    7. For decryption, m = c d mod n.
 """
-from math import fmod
+from math import fmod, pow
 
 
 def gcd(a, b):
-    while True:
-        t = a % b
-        if t == 0:
-            return b
-        a = b
-        b = t
+    if a < b:
+        return gcd()
+    elif a % b == 0:
+        return b
+    else:
+        return gcd(b, a % b)
 
 
 def calculation():
